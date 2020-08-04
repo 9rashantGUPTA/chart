@@ -1,0 +1,22 @@
+{%extends 'product/base.html'%}
+{% load crispy_forms_tags %}
+{%block title%}
+Chart Content
+{%endblock title%}
+{%block content%}
+<div class="">
+    <div class="four wide column">
+            <legend class="border-bottom mb-4">
+                <div class="ui segment">
+                    <h1>Content for the Chart</h1>
+                </div>
+            </legend>
+
+        <form action="" method="POST" class="form ui" autocomplete="off">
+            {% csrf_token%}
+             <div class="ui segment">{{formset|crispy}}</div> <div class="ui segment">
+            <button class="ui large black button" type="submit">Done</button></div>
+        </form>
+    </div>
+</div>
+{%endblock content%}

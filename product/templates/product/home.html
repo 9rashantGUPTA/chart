@@ -1,0 +1,27 @@
+{%extends 'product/base.html'%}
+{% load bootstrap %}
+{%block title%}
+Home
+{%endblock title%}
+{%block content%}
+<form method="GET" action="">
+    {{filter.form|bootstrap}}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+{%for brand in filter.qs%}
+    {%for brand in brands%}
+        <div class="ui segment"><h1>{{brand.title}} | <a href="{% url 'content' brand.slug%}">Content</a> | <a
+                href="{% url 'Brand-Detail' brand.slug%}">Detail</a></h1>
+            <div style="display:flex">
+                {% for tag in brand.tags.all %}
+                <a href="{% url 'tagged' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+                {% endfor %} <a href="{{brand.website}}" target="_blank"><i class="fas fa-link"> </i></a>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}
+
+
+{%endblock content%}

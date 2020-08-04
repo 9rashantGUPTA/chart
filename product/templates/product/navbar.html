@@ -1,0 +1,8 @@
+{% url 'Brand-Create' as brandcreate%}
+<header>
+    <a class="logo" href="{% url 'home' %}">Analyzer</a>
+    <ul>
+        <li><a class="nav-item nav-link{%if request.path == brandcreate%} active {%endif%}"
+               href="{%url 'Brand-Create'%}">Brand Create</a></li>
+    </ul>
+</header>

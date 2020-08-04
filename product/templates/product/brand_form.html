@@ -1,0 +1,24 @@
+{% extends "product/base.html" %}
+{% load crispy_forms_tags %}
+{%block title%}
+Create
+{%endblock title%}
+{% block content %}
+<div class="content-section">
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                <div class="ui segment">
+                    <h1>Create Brand</h1></div>
+            </legend>
+            <div class="ui segment">
+                {{ form|crispy }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
